@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Obtener el ID del producto guardado en localStorage
-    const productId = localStorage.getItem('id');
+    // Obtener el ID del comentatrio guardado en localStorage
+    const comentarioId = localStorage.getItem('id');
 
-    if (productId) {
+    if (comentarioId) {
         // Dirección de la API
-        const apiUrl = `https://japceibal.github.io/emercado-api/products/${productId}.json`;
+        const apiUrl = `https://nataliasotelo.github.io/act-estrellas/estrellas.json`;
 
         // Realizar la solicitud a la API para obtener los datos del producto
         fetch(apiUrl)
