@@ -1,27 +1,43 @@
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Obtener el ID del comentatrio guardado en localStorage
-    const comentarioId = localStorage.getItem('id');
+            const apiUrl = 'https://nataliasotelo.github.io/act-estrellas/estrellas.json';
+            
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const comentariosList = document.getElementById('comentarios-list');
+                    const userSelect = document.getElementById('user-select');
 
-    if (comentarioId) {
-        // Dirección de la API
-        const apiUrl = `https://nataliasotelo.github.io/act-estrellas/estrellas.json`;
+                    data.forEach(estrellas => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'list-group-item';
+                        // Generar los iconos de estrellas
+                        let estrellasHTML = '';
+                        for (let i = 0; i < estrellas.numberrange; i++) {
+                        estrellasHTML += '<i class="fas fa-star text-warning"></i>'; // Icono de estrella lleno
+                        }
 
-        // Realizar la solicitud a la API para obtener los datos del producto
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(list => {
-               
+                        listItem.innerHTML = `<strong>${estrellas.name}</strong> - Compañía: ${estrellas.company} - Estrellas: ${estrellasHTML}`;
 
-                // Actualizar los detalles del comentario en la página
-                document.getElementById('company').textContent = 'Compañia: ${estrellas.company}';
-                document.getElementById('name').textContent = `Nombre: ${estrellas.name}`;
-                document.getElementById('numberrange').textContent =  ${estrellas.numberrange};
+                        comentariosList.appendChild(listItem);
+                        
+                        const option = document.createElement('option');
+                        option.textContent = estrellas.name;
+                        userSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al obtener los datos:', error);
+                });
 
-               
-            .catch(error => {
-                console.error('Error al obtener los datos del producto:', error);
+            document.getElementById('submit-comment').addEventListener('click', () => {
+                const selectedUser = document.getElementById('user-select').value;
+                const commentText = document.getElementById('comment').value;
+
+                if (selectedUser && commentText) {
+                    alert(`Comentario agregado para ${selectedUser}: ${commentText}`);
+                } else {
+                    alert('Por favor, selecciona un usuario y escribe un comentario.');
+                }
             });
-    } else {
-        console.error('Comentario no encontrado en localStorage');
-    }
-});
+        });

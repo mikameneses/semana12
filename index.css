@@ -1,1 +1,25 @@
-
+  body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #ebebeb;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h5 {
+            color: #343a40;
+        }
+        .stars {
+            color: #ffdf00;
+        }
+        #comment {
+            background-color: #fffaf0;
+            border-color: #edd19e;
+        }
+        #submit-comment {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+      
