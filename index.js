@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(list => {
                
 
-                // Actualizar los detalles del producto en la página
+                // Actualizar los detalles del comentario en la página
                 document.getElementById('company').textContent = 'Compañia: ${estrellas.company}';
                 document.getElementById('name').textContent = `Nombre: ${estrellas.name}`;
                 document.getElementById('numberrange').textContent =  ${estrellas.numberrange};
