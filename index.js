@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Realizar la solicitud a la API para obtener los datos del producto
         fetch(apiUrl)
             .then(response => response.json())
-            .then(producto => {
-                // Aquí accedemos al producto que está dentro de la propiedad "products" del JSON
+            .then(list => {
+               
 
                 // Actualizar los detalles del producto en la página
                 document.getElementById('company').textContent = 'Compañia: ${estrellas.company}';
