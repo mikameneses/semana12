@@ -11,7 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.forEach(estrellas => {
                         const listItem = document.createElement('li');
                         listItem.className = 'list-group-item';
-                        listItem.innerHTML = `<strong>${estrellas.name}</strong> - Compañía: ${estrellas.company} - Estrellas: ${estrellas.numberrange}`;
+                        // Generar los iconos de estrellas
+                        let estrellasHTML = '';
+                        for (let i = 0; i < estrellas.numberrange; i++) {
+                        estrellasHTML += '<i class="fas fa-star text-warning"></i>'; // Icono de estrella lleno
+                        }
+
+                        listItem.innerHTML = `<strong>${estrellas.name}</strong> - Compañía: ${estrellas.company} - Estrellas: ${estrellasHTML}`;
+
                         comentariosList.appendChild(listItem);
                         
                         const option = document.createElement('option');
